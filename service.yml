@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  #Service name
+  name: pedido-service
+spec:
+  selector:
+    app: cartorioblockms
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: LoadBalancer

@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cartorioblockms-pedido-dep
+  labels:
+    #Project ID
+    app: cartorioblockms
+spec:
+  #Run two instances of our application
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cartorioblockms
+    spec:
+      #Container details
+      containers:
+        - name: cartorioblockms-pedido
+          image: gcr.io/cartorioblockms/cartorioblockms-pedido:0.0.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"  
+
+          #Ports to expose
+          ports:
+          - containerPort: 8081

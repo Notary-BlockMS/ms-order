@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+  app:
+    image: cartorio-blockms:v1
+    restart: always
+    build: ./
+    ports:
+      - "80:3000"
+    links:
+      - mongo
+  mongo:
+    image: mongo:4.2.0
+    ports:
+      - "27017:27017"
+
+      
+
